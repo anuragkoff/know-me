@@ -1,0 +1,17 @@
+.navbar {
+    background-color: rgb(105, 13, 13);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.listItem {
+    color: white;
+    /* transition: color 0.3s ease; */
+}
+
+.listItem:hover {
+    color: #e72525;
+    /* transition: color 1s ease; */
+}
