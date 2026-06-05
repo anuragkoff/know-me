@@ -37,4 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 ## Setting up the project
-Just run: npm run dev after npm i
+Just run: npm run dev after
+npm i
+npm install nodemailer
+npm install --save-dev @types/nodemailer
