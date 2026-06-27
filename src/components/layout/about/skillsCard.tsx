@@ -1,6 +1,12 @@
 import "./about.css";
 
-export default function SkillsCard({Icon, heading, skills}: {Icon: React.ComponentType<{size?: number}>, heading: string, skills: string[]}) {
+type skillsCardType = {
+  Icon: React.ComponentType<{size?: number}>,
+  heading: string,
+  skills: string[]
+}
+
+export default function SkillsCard({Icon, heading, skills}: skillsCardType) {
   return (
     <div className="skills card flex flex-col text-left gap-4 mt-10 bg-gray-100 p-4 dark:bg-gray-800">
         <Icon size={30} />

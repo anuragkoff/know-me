@@ -9,17 +9,16 @@ export default function TypeWriter() {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <h1>
-        <TypeIt
-          options={{
-            strings: ['Daddy', 'Web Developer', 'UI/UX Designer', 'Owner'],
-            speed: 100,
-            breakLines: false,
-            nextStringDelay: 1500,
-            loop: true,
-          }}
-        />
-      </h1>
+      Hi, I am&nbsp;
+      <TypeIt
+        options={{
+          strings: ['Daddy', 'Web Developer', 'UI/UX Designer', 'Owner'],
+          speed: 100,
+          breakLines: false,
+          nextStringDelay: 1500,
+          loop: true,
+        }}
+      />
     </motion.div>
   );
 }

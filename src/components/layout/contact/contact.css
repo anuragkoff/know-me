@@ -37,7 +37,8 @@
     transition: 0.3s ease;
 }
 
-.form-container:hover {
+.form-container:hover,
+.form-container:focus-within {
     transform: scale(1.05);
     transition: 0.5s ease;
 }

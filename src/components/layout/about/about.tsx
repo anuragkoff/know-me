@@ -1,18 +1,9 @@
-import React from 'react'
 import { FaReact } from "react-icons/fa";
 import { SiNextdotjs } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaGitAlt } from "react-icons/fa";
-import { FaCode } from "react-icons/fa";
-import { GoBook } from "react-icons/go";
-import {aboutData} from "@/components/utils/data";
+import { aboutData } from "@/components/utils/data";
 import SkillsCard from './skillsCard';
-
-const iconMap: { [key: string]: React.ComponentType<{ size?: number }> } = {
-    "FaCode": FaCode,
-    "GoBook": GoBook,
-    // Add more mappings as needed
-};
 
 export default function About() {
     return (
@@ -37,14 +28,6 @@ export default function About() {
                     <RiTailwindCssFill />
                     <FaGitAlt />
                 </div>
-                {/* <h3>Skills</h3>
-                <h5>Java</h5>
-                <h5>Python</h5>
-                <h5>JavaScript</h5>
-                <h5>TypeScript</h5>
-                <h5>React</h5>
-                <h5>Next.js</h5>
-                <h5>Ember.js</h5> */}
             </div>
         </div>
     )

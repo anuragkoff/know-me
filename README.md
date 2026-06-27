@@ -41,3 +41,4 @@ Just run: npm run dev after
 npm i
 npm install nodemailer
 npm install --save-dev @types/nodemailer
+npm i gsap

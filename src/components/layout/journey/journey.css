@@ -1,0 +1,6 @@
+.journeyWrapper {
+  position: relative;
+  overflow: visible;
+  margin: 5rem 0 10rem 2rem;
+  display: flex;
+}
