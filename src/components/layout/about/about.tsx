@@ -4,14 +4,15 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { FaGitAlt } from "react-icons/fa";
 import { aboutData } from "@/components/utils/data";
 import SkillsCard from './skillsCard';
+import "./about.css";
 
 export default function About() {
     return (
-        <div className='flex justify-evenly gap-10 m-10' id='about'>
-            <div>
-                <p>Degree</p>
+        <div className='about' id='about'>
+            <div className='degreeImage'>
+                <img src="/DegreeSVG.svg" />
             </div>
-            <div className='w-1/2'>
+            <div className=''>
                 <h1 className='text-5xl font-bold mb-10'>About Me</h1>
                 <p>I am Anurag, a Software Engineer with over a year of experience building scalable authentication systems and modern web applications.
                     I specialize in frontend development with React and Ember, and I have hands-on experience working with backend systems, REST APIs, and databases. My focus is on creating reliable, user-centric products that balance performance with great user experience.
