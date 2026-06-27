@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import styles from './navbar.module.css';
 
@@ -7,6 +8,16 @@ export default function Navbar() {
     { name: "Journey", href: "#journey" },
     { name: "About", href: "#about" },
   ];
+
+  const handleScroll = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    const scrollTo = document.querySelector(href ?? '');
+    if (scrollTo) {
+      scrollTo.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
       <header className="fixed inset-x-0 top-3 z-50 mr-5 ml-5">
@@ -14,12 +25,16 @@ export default function Navbar() {
           <ul className="flex space-x-5 gap-5">
             {navItems.map(({name, href}) => (
               <li className={styles.listItem} key={name}>
-                <Link href={href}>{name}</Link>
+                <Link href={href} onClick={handleScroll}>{name}</Link>
               </li>
             ))}
           </ul>
-          <Link href="#hero" className="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold">Daddy&apos;s Home</Link>
-          <Link href="#contact" className={styles.listItem}>Contact Me</Link>
+          <Link href="#hero" className="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold" onClick={handleScroll}>
+            Daddy&apos;s Home
+          </Link>
+          <Link href="#contact" className={styles.listItem} onClick={handleScroll}>
+            Contact Me
+          </Link>
         </nav>
       </header>
     </>
