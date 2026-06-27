@@ -2,10 +2,6 @@
 
 import { useState } from "react";
 import Ticker from "./ticker";
-import { BiLogoTypescript } from "react-icons/bi";
-import { FaCss3, FaGithub, FaJava, FaReact } from "react-icons/fa";
-import { IoLogoJavascript } from "react-icons/io";
-import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { infinityLogo } from "../utils/data";
 
 export default function TextScroll() {

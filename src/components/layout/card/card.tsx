@@ -14,8 +14,7 @@ export default function Card({
   img: string;
 }) {
   return (
-    <>
-    <div className={styles.card}>
+    <div className={styles.card} id="projects">
         <div className={styles.cardImage}>
           {img ? (
             <Image
@@ -37,6 +36,5 @@ export default function Card({
             </div>
         </div>
     </div>
-    </> 
   )
 }

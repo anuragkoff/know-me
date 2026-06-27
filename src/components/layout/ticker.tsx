@@ -23,7 +23,7 @@ type TickerProps = {
 
 const noop = () => {};
 
-const Ticker: React.FunctionComponent<TickerProps> = (props: TickerProps) => {
+export default function Ticker (props: TickerProps) {
   const {
     children,
     duration = props.duration ?? 10,
@@ -60,17 +60,6 @@ const Ticker: React.FunctionComponent<TickerProps> = (props: TickerProps) => {
       ? TICKER_DIRECTION_LEFT
       : TICKER_DIRECTION_RIGHT;
 
-  // ─── Detect reduced-motion preference ────────────────────────────────────
-  // useEffect(() => {
-  //   const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
-  //   setPrefersReducedMotion(mql.matches);
-  //   const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-  //   mql.addEventListener("change", handler);
-  //   return () => mql.removeEventListener("change", handler);
-  // }, []);
-
-  // ─── Measure content width & calculate duplication count ─────────────────
-  // Only tickerContentsRef is used for measuring — never scope / the wrapper.
   useEffect(() => {
     const container = containerRef.current;
     const contentsEl = tickerContentsRef.current;
@@ -93,13 +82,10 @@ const Ticker: React.FunctionComponent<TickerProps> = (props: TickerProps) => {
     return () => observer.disconnect();
   }, []);
 
-  // ─── Start / restart animation whenever key params change ────────────────
-  // Animates from 0 → -tickerContentWidth (or positive for RTL).
   // Using explicit [from, to] keyframes prevents jump-on-restart glitches.
   useEffect(() => {
     if (!isInView || tickerContentWidth <= 0) return;
 
-    // Stop previous animation cleanly
     if (animationControls) {
       animationControls.stop();
     }
@@ -125,10 +111,9 @@ const Ticker: React.FunctionComponent<TickerProps> = (props: TickerProps) => {
 
     // Cleanup on unmount / re-run
     return () => controls.stop();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInView, tickerContentWidth, directionMultiplier, duration]);
 
-  // ─── Play / pause in response to prop/state changes ──────────────────────
+  // Play / pause in response to prop/state changes
   useEffect(() => {
     if (!animationControls) return;
 
@@ -145,7 +130,6 @@ const Ticker: React.FunctionComponent<TickerProps> = (props: TickerProps) => {
     }
   }, [isInView, isPlaying, isHovered, pauseOnHover, prefersReducedMotion]);
 
-  // ─── Mouse handlers ───────────────────────────────────────────────────────
   const handleMouseEnter = () => {
     setIsHovered(true);
     onMouseEnter();
@@ -156,17 +140,13 @@ const Ticker: React.FunctionComponent<TickerProps> = (props: TickerProps) => {
     onMouseLeave();
   };
 
-  // ─── Render ───────────────────────────────────────────────────────────────
   // Layout explanation:
   //   [outer container — clips overflow, ref=containerRef]
   //     [animated strip — ref=animationScope, x is transformed by Framer Motion]
   //       [dupes before]  [measured source — ref=tickerContentsRef]  [dupes after]
-  //
-  // We no longer use marginLeft on the animated element. Instead we rely on
-  // the "dupes before" block to keep content visible as x goes negative (LTR).
   return (
     <div
-      className="FMT__container"
+      className="ticker"
       ref={containerRef}
       style={{
         width: '100%',
@@ -179,12 +159,11 @@ const Ticker: React.FunctionComponent<TickerProps> = (props: TickerProps) => {
       {/* This is the element Framer Motion translates */}
       <div
         ref={animationScope}
-        className="FMT__container__contents"
+        className="ticker-contents"
         style={{
           display: "flex",
           width: "max-content",
           gap: `${gap}px`,
-          // No marginLeft here — that was the source of the original glitch
         }}
       >
         {/* Duplicates BEFORE the source set — keeps the strip filled as it scrolls left */}
@@ -214,5 +193,3 @@ const Ticker: React.FunctionComponent<TickerProps> = (props: TickerProps) => {
     </div>
   );
 };
-
-export default Ticker;
