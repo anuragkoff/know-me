@@ -1,6 +1,11 @@
+"use client";
+
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
 import styles from './card.module.css';
 import { FaGithub } from "react-icons/fa";
+import { useEffect } from 'react';
 
 export default function Card({
   name,
@@ -13,8 +18,30 @@ export default function Card({
   github: string;
   img: string;
 }) {
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#projects',
+        start: 'top 80%',
+      }
+    });
+
+    tl.fromTo('#projects', {
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 2,
+      stagger: 0.4,
+    });
+  });
+
   return (
-    <div className={styles.card} id="projects">
+    <div className={`card ${styles.card}`} id="projects">
         <div className={styles.cardImage}>
           {img ? (
             <Image

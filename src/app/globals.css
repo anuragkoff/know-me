@@ -30,3 +30,7 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+.textScroll {
+  padding-top: 3rem;
+}

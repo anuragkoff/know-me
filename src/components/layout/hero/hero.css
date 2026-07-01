@@ -1,0 +1,30 @@
+.heroSection {
+  height: 100%;
+  width: 100%;
+}
+
+.landingImage {
+  z-index: -1;
+  object-fit: cover;
+}
+
+.frontPage {
+  position:absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1f3136;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+
+.typeWriter {
+  position: absolute;
+  bottom: 15%;
+}

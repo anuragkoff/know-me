@@ -5,13 +5,12 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import { stackedData } from "@/components/utils/data";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { ScrollSmoother } from 'gsap/dist/ScrollSmoother';
 import CircleScroll from './circle-scroll';
 import StackedCard from "../stacked-card";
 
 export default function Journey() {
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    gsap.registerPlugin(ScrollTrigger);
 
     gsap.to("#fillRect", {
       scrollTrigger: {
