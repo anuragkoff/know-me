@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f03636;
+  --background: #0F172A;
   --foreground: #171717;
 }
 
@@ -29,6 +29,14 @@ body {
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+p {
+  color: #F1F5F9;
+}
+
+h1 {
+  color: #F59E0B;
 }
 
 .textScroll {

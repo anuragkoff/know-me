@@ -4,10 +4,12 @@ import "./contact.css"
 
 export default function Contact() {
     const [formData, setFormData] = useState<{ email: string, message: string }>({ email: "", message: "" });
+    const [isDataFilled, setIsDataFilled] = useState(false);
 
     function onDataChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+        setIsDataFilled(true);
     }
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -23,10 +25,10 @@ export default function Contact() {
 
     return (
         <div className='contact' id="contact">
-            <div className="">
-                <h1 className="text-4xl font-bold text-red-900">Contact Me</h1>
-                <p className="text-lg text-gray-600">Feel free to reach out to me using the form below!</p>
+            <div className="contactText">
+                <h1 className="text-4xl font-bold text-red-900">Contact</h1>
             </div>
+            <div className="contactForm">
             <div className="form-container">
                 <form className="form">
                     <div className="form-group">
@@ -43,8 +45,15 @@ export default function Contact() {
                         <label htmlFor="textarea">How Can We Help You?</label>
                         <textarea name="message" id="textarea" required onChange={onDataChange} />
                     </div>
-                    <button className="form-submit-btn" type="button" onClick={handleSubmit}>Submit</button>
+
+                    <div className="form-consent flex">
+                        <input type="checkbox" id="consent" name="consent" required />
+                        <label className="text-gray-500 font-bold text-sm pl-2" htmlFor="consent">I consent to having this website store my submitted information so they can respond to my inquiry.</label>
+                    </div>
+                    <button className="form-submit-btn" type="button" disabled={!isDataFilled} style={{ cursor: !isDataFilled ? "not-allowed" : "pointer" }} onClick={handleSubmit}>Send</button>
+                    <p className="text-gray-500 font-bold text-sm">I generally revert within 48 hours.</p>
                 </form>
+            </div>
             </div>
         </div>
     )

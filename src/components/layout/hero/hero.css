@@ -26,5 +26,23 @@
 
 .typeWriter {
   position: absolute;
+  bottom: 25%;
+}
+
+.heroButtons {
+  position: absolute;
   bottom: 15%;
+}
+
+.resume {
+  outline: 1px solid #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  font-size: 1.25rem;
+  color: #ffffff;
+  &:hover {
+    background-color: #0b3c25;
+    transition: all 0.3s ease-in-out;
+  }
+  cursor: pointer;
 }

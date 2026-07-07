@@ -1,10 +1,10 @@
 /* From Uiverse.io by alexmaracinaru */ 
 .card {
   border: 1px solid rgb(0, 0, 0);
-  border-right: 4px solid rgb(105, 13, 13);
-  border-bottom: 4px solid rgb(105, 13, 13);
+  border-right: 4px solid #CEFCFF;
+  border-bottom: 4px solid #CEFCFF;
   width: 20%;
-  background: transparent;
+  background: #461616;
   padding: .4em;
   flex-wrap: wrap;
   border-radius: 6px;
@@ -34,7 +34,7 @@
 
 .heading {
   font-weight: 600;
-  color: rgb(88, 87, 87);
+  color: #CEFCFF;
   padding: 7px;
 }
 

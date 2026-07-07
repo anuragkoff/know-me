@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { stackedData } from "@/components/utils/data";
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import CircleScroll from './circle-scroll';
-import StackedCard from "../stacked-card";
+import StackedCard from "./stacked-card";
 
 export default function Journey() {
   useEffect(() => {

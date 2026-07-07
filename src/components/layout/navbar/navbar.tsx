@@ -1,10 +1,11 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Link from "next/link";
 import styles from './navbar.module.css';
 
 export default function Navbar() {
+  const animate = useRef(false);
   const navItems = [
     { name: "Projects", href: "#projects" },
     { name: "Journey", href: "#journey" },
@@ -21,13 +22,15 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    if (animate.current || window.location.pathname !== '/') return;
     gsap.from('.navbar', {
       y: -100,
       duration: 1,
       delay: 1.5,
       ease: 'power2.out',
     });
-  });
+    animate.current = true;
+  }, []);
 
   return (
     <>
@@ -40,7 +43,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <Link href="#hero" className="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold" onClick={handleScroll}>
+          <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold" >
             Daddy&apos;s Home
           </Link>
           <Link href="#contact" className={styles.listItem} onClick={handleScroll}>

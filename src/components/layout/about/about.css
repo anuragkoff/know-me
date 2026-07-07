@@ -1,9 +1,14 @@
 .about {
   padding-top: 3rem;
   margin: 3rem 5rem 1rem 5rem;
-  justify-content: space-between;
-  gap: 10rem;
+  justify-content:flex-end;
+  gap: 5rem;
   display: flex;
+}
+
+.aboutContent {
+  position: relative;
+  width: 60%;
 }
 
 .card {
@@ -21,9 +26,11 @@
 
 .degreeImage {
   position: relative;
+  width: 30%;
+  filter: brightness(1.7);
+  clip-path: circle(50% at 60% 50%);
+  height: 400px;
   padding-top: 3rem;
-  margin: 5rem 0 0 5rem;
-  scale: 1.3;
 }
 
 @media (prefers-color-scheme: dark) {

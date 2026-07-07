@@ -1,6 +1,11 @@
 .journeyWrapper {
   position: relative;
   overflow: visible;
-  margin: 5rem 0 10rem 2rem;
+  margin: 5rem 3rem 10rem 2rem;
   display: flex;
+  justify-content: space-between;
+}
+
+.journeyContainer {
+  max-width: 60vw;
 }
