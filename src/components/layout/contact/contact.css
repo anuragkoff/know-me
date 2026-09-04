@@ -2,13 +2,14 @@
     color: white;
     box-sizing: border-box;
     padding: 2rem;
+    height: 100vh;
 }
 
 .contactForm {
     position: relative;
-    left: 40%;
+    left: 45%;
     bottom: 8rem;
-    width: 50%;
+    width: fit-content;
 
     background: linear-gradient(#2a4027, #222913) padding-box,
         linear-gradient(145deg, transparent 40%, #3f1414, #93cde4) border-box;
@@ -25,7 +26,8 @@
 
 .contactText {
     position: relative;
-    width: 100vw;
+    /* width: 100vw; */
+    margin-left: 3rem;
     justify-content: center;
 
     h1 {
@@ -71,6 +73,15 @@
     font-family: inherit;
     background-color: transparent;
     border: 1px solid #6e6b6b;
+}
+
+.form-container .form-group input:-webkit-autofill,
+.form-container .form-group input:-webkit-autofill:hover,
+.form-container .form-group input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0 1000px #2a4027 inset;
+    box-shadow: 0 0 0 1000px #2a4027 inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .form-container .form-group textarea {

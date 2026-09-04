@@ -5,6 +5,7 @@
 
 .landingImage {
   z-index: -1;
+  font-size: 70%;
   object-fit: cover;
 }
 

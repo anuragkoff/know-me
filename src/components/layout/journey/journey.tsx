@@ -20,7 +20,7 @@ export default function Journey() {
         scrub: true,
         pin: ".pin"
       },
-      attr: { y: 100 },  // moves rectangle upward, revealing the fill
+      attr: { y: 20 },  // moves rectangle upward, revealing the fill
     });
 
     const tl = gsap.timeline({

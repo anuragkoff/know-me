@@ -1,7 +1,6 @@
 .stackContainer {
     position: relative;
     justify-content: end;
-    /* width: 60vw; */
     height: fit-content;
     border-radius: 1.25rem;
     padding: 0.5rem 2.5rem 1rem;
