@@ -1,44 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Know Me
+
+An interactive personal portfolio built with Next.js, React, TypeScript, GSAP, Framer Motion, and Tailwind CSS. The site presents projects, experience, skills, a resume, and a contact form in an animated single-page experience.
+
+## Features
+
+- Animated portfolio homepage with hero, project, journey, about, contact, and footer sections
+- Responsive navigation and interactive scrolling components
+- Project and skills presentation components
+- Resume page at `/resume`
+- Public resume PDF at `/AnuragResume.pdf`
+- Contact form backed by a Next.js route handler and Nodemailer
+- React Compiler enabled in the Next.js configuration
+- Remote image configuration for the external image hosts used by the project
+
+## Tech Stack
+
+- Next.js `16`
+- React `19`
+- TypeScript `5`
+- Tailwind CSS `4`
+- GSAP and `@gsap/react`
+- Framer Motion
+- React Icons
+- TypeIt and TypeIt React
+- Nodemailer for contact email delivery
+
+## Requirements
+
+- Node.js 20 or newer
+- npm
+- A Gmail account with an App Password if the contact form should send email
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env.local` file in the project root:
+
+```env
+GMAIL_USER=your-gmail-address@gmail.com
+GMAIL_PASS=your-gmail-app-password
+```
+
+`GMAIL_PASS` must be a Gmail App Password, not the normal Gmail account password. Keep `.env.local` private and do not commit it.
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in a browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Next.js development server. |
+| `npm run lint` | Run ESLint. |
+| `npm run build` | Create a production build. |
+| `npm run start` | Start the production server after building. |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+src/
+	app/
+		page.tsx                 # Portfolio homepage composition
+		layout.tsx               # Root layout, fonts, metadata, and navbar
+		globals.css              # Global styles and Tailwind import
+		api/send-email/route.ts  # Contact form email endpoint
+	components/
+		icons/                   # Reusable icon components
+		layout/
+			about/                 # About and skills sections
+			card/                  # Shared card UI
+			contact/               # Contact form and styles
+			footer/                # Footer section
+			hero/                  # Hero and typewriter experience
+			journey/               # Journey timeline and stacked cards
+			navbar/                # Site navigation
+			projects/              # Projects section
+			text-scroll.tsx        # Scrolling text experience
+public/
+	images/                    # Portfolio images
+	AnuragResume.pdf           # Resume document
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact Form
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The contact form submits JSON to:
 
-## Deploy on Vercel
+```text
+POST /api/send-email
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The route reads `name`, `email`, and `message`, then sends the message through the Gmail account configured by `GMAIL_USER` and `GMAIL_PASS`. The recipient is the configured Gmail user, and the sender's email is used as the reply-to address.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For production use, configure the environment variables in the hosting provider rather than committing them to the repository. The email account should have two-step verification and an App Password enabled.
 
+## Development Guidelines
 
-## Setting up the project
-Just run: npm run dev after
-npm i
-npm install nodemailer
-npm install --save-dev @types/nodemailer
-npm i gsap
+- Keep browser-only behavior in client components and avoid adding client boundaries unnecessarily.
+- Reuse the existing component and CSS patterns before introducing new UI dependencies.
+- Keep animation behavior accessible and avoid making essential content depend only on animation.
+- Validate contact input and preserve secrets on the server side.
+- Run lint and a production build before deploying:
+
+```bash
+npm run lint
+npm run build
+```
+
+## Deployment
+
+The project can be deployed to Vercel or another host that supports Next.js 16.
+
+1. Import the repository into the hosting provider.
+2. Use `npm install` as the dependency installation command.
+3. Use `npm run build` as the build command.
+4. Use `npm run start` for a Node.js server deployment when required by the provider.
+5. Add `GMAIL_USER` and `GMAIL_PASS` as production environment variables.
+
+Before production deployment, confirm that the configured image hosts are allowed by `next.config.ts`, the email App Password is active, and the deployment platform supports the project's Node.js version.
+
+## License
