@@ -27,3 +27,20 @@
     stroke-width: 2;
   }
 }
+
+@media (max-width: 426px) {
+  .journeyWrapper {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 5rem 0 10rem;
+
+    .journeyContainer {
+      max-width: 90vw;
+    }
+  }
+
+  .circleScroll {
+    display: none;
+  }
+}

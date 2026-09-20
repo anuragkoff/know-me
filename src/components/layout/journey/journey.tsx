@@ -42,17 +42,29 @@ export default function Journey() {
       stagger: 0.5,
     });
 
-    tl.to(
-      '.cardContainer',
+    const mm = gsap.matchMedia();
+
+    mm.add(
       {
-        marginBottom: -60,
-        stagger: 0.5,
+        mobile: '(max-width: 426px)',
       },
-      '<'
+      (context) => {
+        const { mobile } = context.conditions ?? {};
+
+        tl.to(
+          '.cardContainer',
+          {
+            marginBottom: mobile ? -100 : -60,
+            stagger: 0.5,
+          },
+          '<'
+        );
+      }
     );
 
     return () => {
       tl.kill();
+      mm.revert();
     };
   }, []);
 
