@@ -14,6 +14,12 @@ import { useEffect } from "react";
 export default function About() {
 
     useEffect(() => {
+        const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 426px)').matches;
+
+        if (isMobile) {
+            return; // Skip animations for mobile devices
+        }
+
         gsap.from(".aboutContent", {
             scrollTrigger: {
                 trigger: "#about",
@@ -21,11 +27,18 @@ export default function About() {
                 end: "bottom 85%",
                 scrub: 0.5,
             },
-            x: 200,
+            markers: true,
+            x: 50,
             opacity: 0,
             duration: 1.5,
             ease: "power2.out",
         });
+
+        const isTablet = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
+
+        if (isTablet) {
+            return; // Skip animations for tablet devices
+        }
 
         gsap.from(".degreeImage", {
             scrollTrigger: {
@@ -34,7 +47,7 @@ export default function About() {
                 end: "bottom 85%",
                 scrub: 0.5,
             },
-            x: -200,
+            x: -100,
             opacity: 0,
             duration: 1.5,
             ease: "power2.out",
@@ -52,7 +65,7 @@ export default function About() {
                     I specialize in frontend development with React and Ember, and I have hands-on experience working with backend systems, REST APIs, and databases. My focus is on creating reliable, user-centric products that balance performance with great user experience.
                     Beyond coding, I enjoy solving complex problems, experimenting with new technologies, and continuously refining my craft to deliver production-grade solutions.</p>
 
-                <div className='flex gap-10'>
+                <div className='flex gap-10 aboutCards'>
                     {aboutData.map((item) => (
                         <SkillsCard key={item.key} Icon={item.Icon} heading={item.heading} skills={item.skills} />
                     ))}

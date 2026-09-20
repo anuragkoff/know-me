@@ -42,29 +42,19 @@ export default function Journey() {
       stagger: 0.5,
     });
 
-    const mm = gsap.matchMedia();
+    const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 426px)').matches;
 
-    mm.add(
+    tl.to(
+      '.cardContainer',
       {
-        mobile: '(max-width: 426px)',
+        marginBottom: isMobile ? -100 : -60,
+        stagger: 0.5,
       },
-      (context) => {
-        const { mobile } = context.conditions ?? {};
-
-        tl.to(
-          '.cardContainer',
-          {
-            marginBottom: mobile ? -100 : -60,
-            stagger: 0.5,
-          },
-          '<'
-        );
-      }
+      '<'
     );
 
     return () => {
       tl.kill();
-      mm.revert();
     };
   }, []);
 
