@@ -35,7 +35,7 @@ export default function Contact() {
         setIsDataFilled(true);
     }
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async () => {
         if(!(formData.email && formData.message && formData.name)) {
             alert("Please fill in all fields before submitting.");
             return;

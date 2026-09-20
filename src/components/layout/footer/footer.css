@@ -5,6 +5,8 @@
     corner-top-shape: calc(0); */
   /* width: auto; */
   height: 50vh;
+  min-height: 16rem;
+  /* padding: 2rem var(--page-gutter); */
   background-color: #310202;
   /* Horizontal % and vertical px */
   /* border-top-left-radius: 50% 100px;
@@ -15,7 +17,17 @@
     text-align: center;
     font-size: 2rem;
     margin-top: 2rem;
-    font-size: 20vw;
+    font-size: clamp(4rem, 15vw, 12rem);
     font-family: cursive;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer {
+    height: auto;
+  }
+
+  .footer h1 {
+    font-size: clamp(3.5rem, 20vw, 7rem);
   }
 }

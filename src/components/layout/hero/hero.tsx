@@ -2,8 +2,6 @@
 
 import './hero.css';
 import Image from 'next/image';
-import Link from 'next/link';
-import { IoCloudDownloadOutline } from "react-icons/io5";
 import TypeWriter from "./typewriter";
 import { gsap } from 'gsap';
 import { useEffect } from 'react';
@@ -49,10 +47,11 @@ export default function HeroSection() {
 
   return (
     <>
+      <div id="hero">
       <div className="frontPage">
         <h1>Anurag</h1>
       </div>
-      <div className="heroContent relative min-h-screen items-center px-16 py-32 font-sans dark:bg-#000000" id="hero">
+      <div className="heroContent relative min-h-screen items-center px-16 py-32 font-sans">
         {/* <div className="heroElements"> */}
         <div className="typeWriter">
           <h1 className="flex text-5xl font-bold"><TypeWriter /></h1>
@@ -75,6 +74,7 @@ export default function HeroSection() {
           alt="Hero Image"
           fill={true}
         />
+      </div>
     </>
   )
 }
