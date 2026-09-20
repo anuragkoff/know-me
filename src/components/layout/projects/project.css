@@ -1,0 +1,7 @@
+@media (max-width: 426px) {
+  .projects {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}

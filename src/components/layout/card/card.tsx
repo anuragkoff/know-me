@@ -41,13 +41,13 @@ export default function Card({
   });
 
   return (
-    <div className={`card ${styles.card}`} id="projects">
+    <div className={`card ${styles.card}`}>
         <div className={styles.cardImage}>
           {img ? (
             <Image
               src={img}
               alt={name ?? 'card image'}
-              width={320}
+              width={360}
               height={180}
               className={styles.image}
             />
