@@ -52,7 +52,6 @@ export default function HeroSection() {
         <h1>Anurag</h1>
       </div>
       <div className="heroContent relative min-h-screen items-center px-16 py-32 font-sans">
-        {/* <div className="heroElements"> */}
         <div className="typeWriter">
           <h1 className="flex text-5xl font-bold"><TypeWriter /></h1>
           <p className="mt-4 text-lg">A passionate developer and lifelong learner.</p>

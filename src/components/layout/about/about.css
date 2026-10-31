@@ -64,6 +64,12 @@
   } */
 }
 
+@media (max-width: 321px) {
+  .aboutContent {
+    margin-top: 0.5rem;
+  }
+}
+
 @media (max-width: 426px) {
   .about {
     padding-top: 0;

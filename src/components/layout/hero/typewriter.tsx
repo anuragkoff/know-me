@@ -12,7 +12,7 @@ export default function TypeWriter() {
       Hi, I am&nbsp;
       <TypeIt
         options={{
-          strings: ['Daddy', 'Web Developer', 'UI/UX Designer', 'Owner'],
+          strings: ['Anurag', 'Web Developer', 'Software Developer'],
           speed: 100,
           breakLines: false,
           nextStringDelay: 1500,

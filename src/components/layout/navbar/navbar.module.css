@@ -1,3 +1,15 @@
+/* .navbar {
+    color: white;
+    width: min(100% - 2rem, 72rem);
+    margin: 0 auto;
+    padding: 1rem clamp(1rem, 2rem, 2.5rem);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+} */
 .navbar {
     color: white;
     padding: 1rem 2rem;
@@ -12,4 +24,55 @@
 .listItem:hover {
     color: #e72525;
     transition: color 0.3s ease;
+}
+
+.navLinks a {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.menuButton {
+    display: none;
+}
+
+@media (max-width: 760px) {
+    .navbar {
+        padding: 0.75rem 1rem;
+        display: flex;
+        /* justify-content: space-between; */
+        position: relative;
+    }
+
+    .menuButton {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid rgb(255 255 255 / 0.5);
+        border-radius: 0.375rem;
+        min-height: 2.75rem;
+        padding: 0 0.75rem;
+        color: white;
+    }
+
+    .navLinks {
+        display: none;
+    }
+
+    .navLinks.menuOpen {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        background: rgb(69 4 4 / 0.95);
+        box-shadow: 0 1rem 2rem rgb(0 0 0 / 0.25);
+    }
+
+    .navLinks a {
+        padding: 0.5rem 0.75rem;
+    }
 }
